@@ -13,7 +13,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/booking")
-@CrossOrigin(origins = "http://localhost:5173", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(
+        origins = {"http://localhost:5173", "http://localhost:5174"},
+        allowCredentials = "true")
 public class BookingController {
 
     @Autowired
@@ -22,7 +24,7 @@ public class BookingController {
     @PostMapping(value = "/add", consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> addBooking(@RequestBody BookingDto bookingDto) {
         try {
-            System.out.println("Received booking data: " + bookingDto);
+            System.out.println("Received booking data: " + bookingDto.getCustomerId());
 
             System.out.println("booking Details;"+  bookingDto);
 

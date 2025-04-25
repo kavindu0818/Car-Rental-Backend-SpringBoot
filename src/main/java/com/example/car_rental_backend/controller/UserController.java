@@ -15,9 +15,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(
+        origins = {"http://localhost:5173", "http://localhost:5174"},
+        allowCredentials = "true")
 @RequestMapping("/api/v1")
-@RequiredArgsConstructor // ✅ This will handle constructor injection
+//@RequiredArgsConstructor // ✅ This will handle constructor injection
 public class UserController {
 
     @Autowired

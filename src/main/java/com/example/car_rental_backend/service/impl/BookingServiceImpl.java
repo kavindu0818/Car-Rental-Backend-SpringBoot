@@ -25,7 +25,10 @@ public class BookingServiceImpl implements BookingService{
 
     @Override
     public BookingDto addBooking(BookingDto bookingDto) {
+        System.out.println("BookingService"+bookingDto.getCarDetails() + bookingDto.getCustomerId());
+        // System.out.println("mapping ok "+(mapping.toBookingEntity(bookingDto)).getCustomer());
        BookingEntity bookingEntity =bookingDao.save(mapping.toBookingEntity(bookingDto));
+
        return mapping.toBookingDTO(bookingEntity);
     }
 
