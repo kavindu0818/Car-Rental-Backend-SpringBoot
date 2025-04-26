@@ -15,10 +15,6 @@ public class Mapping {
     @Autowired
     private ModelMapper modelMapper;
 
-    // Use constructor injection
-//    public Mapping(ModelMapper modelMapper) {
-//        this.modelMapper = modelMapper;
-//    }
 
     public CarEntity toCarEntity(CarDto carDto) {
         return modelMapper.map(carDto, CarEntity.class);
@@ -82,5 +78,22 @@ public class Mapping {
 
     public List<CustomerDto> asCustomerEntityList(List<CustomerEntity> customerEntityList) {
         return modelMapper.map(customerEntityList, new TypeToken<List<CustomerDto>>() {}.getType());
+    }
+
+
+    public OnlineBookingEntity toOnlineBookingEntity(OnlineBookingDto onlineBookingDto) {
+        return modelMapper.map(onlineBookingDto, OnlineBookingEntity.class);
+    }
+
+    public OnlineBookingDto toOnlineBookingDTO(OnlineBookingEntity onlineBookingEntity) {
+        return modelMapper.map(onlineBookingEntity, OnlineBookingDto.class);
+    }
+
+    public List<OnlineBookingEntity> asOnlineBookingList(List<OnlineBookingDto> onlineBookingDtos) {
+        return modelMapper.map(onlineBookingDtos, new TypeToken<List<OnlineBookingEntity>>() {}.getType());
+    }
+
+    public List<OnlineBookingDto> asOnlineBookingEntityList(List<OnlineBookingEntity> onlineBookingEntityList) {
+        return modelMapper.map(onlineBookingEntityList, new TypeToken<List<OnlineBookingDto>>() {}.getType());
     }
 }

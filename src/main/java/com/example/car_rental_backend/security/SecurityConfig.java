@@ -37,6 +37,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/cus/**").permitAll() 
                         .requestMatchers("/api/cus/update/**").authenticated() // Public access to car-related endpoints
                         .requestMatchers("/api/booking/**").permitAll()  // Public access to car-related endpoints
+                        .requestMatchers("/api/online/**").permitAll()  // Public access to car-related endpoints
                         .requestMatchers("/api/history/**").permitAll()  // Public access to car-related endpoints
                         .requestMatchers("/api/history/get").permitAll()  // Public access to car-related endpoints
                         .anyRequest().authenticated()  // Other endpoints require authentication
