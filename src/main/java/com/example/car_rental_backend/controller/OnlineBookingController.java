@@ -20,6 +20,7 @@ public class OnlineBookingController {
     @PostMapping(value = "/add", consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> addBooking(@RequestBody OnlineBookingDto onlineBookingDto) {
         try {
+            System.out.println("online booking dto" + onlineBookingDto.getCarDetails() + onlineBookingDto.getCustomerId());
             OnlineBookingDto savedBooking = onlineBookingService.addOnlineBooking(onlineBookingDto);
             return ResponseEntity.ok(savedBooking);
         } catch (Exception ex) {

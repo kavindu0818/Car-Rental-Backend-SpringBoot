@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @Data
 public class OnlineBookingDto {
 
+    private Long onlineBookingId;
     private String carDetails;
     private String customerId;
     private String startDate;
