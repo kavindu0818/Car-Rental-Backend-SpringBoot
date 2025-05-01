@@ -1,12 +1,10 @@
 package com.example.car_rental_backend.util;
-
 import com.example.car_rental_backend.dto.*;
 import com.example.car_rental_backend.entity.*;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component

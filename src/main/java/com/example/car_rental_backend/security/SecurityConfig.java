@@ -52,12 +52,10 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Set allowed origins to specific addresses instead of '*' for security
         configuration.setAllowedOrigins(List.of("http://localhost:5174","http://localhost:5173"));  // Only allow specific frontend origin
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));  // Allow specific headers
         configuration.setAllowCredentials(true);  // Allow credentials like cookies or authorization headers
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);  // Apply the configuration to all paths
         return source;

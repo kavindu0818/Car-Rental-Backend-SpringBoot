@@ -1,5 +1,4 @@
 package com.example.car_rental_backend.service.impl;
-
 import com.example.car_rental_backend.dao.CarDao;
 import com.example.car_rental_backend.dto.CarDto;
 import com.example.car_rental_backend.entity.CarEntity;
@@ -8,7 +7,6 @@ import com.example.car_rental_backend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,12 +21,9 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private Mapping mapping;
 
-    // Add a new car
     @Override
     public CarDto addCar(CarDto carDto) {
         CarEntity carEntity = mapping.toCarEntity(carDto);
-
-        System.out.println("mama service impl ekata awoo" + carEntity);
         CarEntity savedCar = carDao.save(carEntity);
 
         if (savedCar == null) {
@@ -62,7 +57,7 @@ public class CarServiceImpl implements CarService {
         throw new RuntimeException("Car not found");
     }
 
-    // Get all cars
+
     @Override
     public List<CarDto> getAllCars() {
         List<CarEntity> carEntities = carDao.findAll();
@@ -71,13 +66,15 @@ public class CarServiceImpl implements CarService {
                 .collect(Collectors.toList());
     }
 
-    // Delete a car by ID
+
     @Override
     public void deleteCar(String number) {
+
         if (carDao.existsById(number)) {
             carDao.deleteById(number);
         } else {
             throw new RuntimeException("Car not found");
         }
+
     }
 }
